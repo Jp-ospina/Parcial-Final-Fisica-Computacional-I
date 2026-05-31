@@ -13,37 +13,7 @@ Este programa resuelve la ecuación de Laplace bidimensional ($\nabla^2 \phi = 0
 - **Salida Detallada**: Guardado de resultados en archivo `.dat` en carpeta results/
 - **Visualización Dual**: Scripts para graficar con Gnuplot o Python
 
-## Estructura del Proyecto
-
-```
-punto2_edp/
-├── include/
-│   └── laplace.h              # Definición de funciones y estructuras
-├── src/
-│   ├── main.cpp               # Punto de entrada principal (modularizado)
-│   └── laplace.cpp            # Implementación del solver
-├── code/
-│   └── mainSinModularizar.cpp # Versión no modularizada
-├── scripts/
-│   ├── graficar_laplace.py    # Script Python para visualización
-│   └── graficar_laplace.gp    # Script Gnuplot para visualización
-├── results/
-│   ├── solucion_laplace.dat   # Datos de salida (generado)
-│   └── graficas/
-│       ├── gnuplot/           # Gráficas generadas con Gnuplot
-│       └── python/            # Gráficas generadas con Python
-├── Makefile                   # Automatización de compilación
-└── README.md                  # Esta documentación
-```
-
 ## Compilación
-
-### Requisitos
-
-- Compilador C++ (g++ recomendado)
-- Make
-- Opcional: Gnuplot para visualización con Gnuplot
-- Opcional: Python 3 con numpy y matplotlib para visualización con Python
 
 ### Instrucciones
 
@@ -70,11 +40,6 @@ make graficar_python
 **Limpiar archivos compilados y resultados:**
 ```bash
 make clean
-```
-
-**Ver ayuda:**
-```bash
-make help
 ```
 
 ## Parámetros de Entrada
@@ -130,13 +95,6 @@ $$\phi_{i,j}^{(k+1)} = (1-\omega)\phi_{i,j}^{(k)} + \frac{\omega}{4}(\phi_{i+1,j
 
 Donde $\omega$ es el factor de sobre-relajación (1 < ω < 2).
 
-## Notas
-
-- El factor ω cercano a 1.9 suele proporcionar convergencia óptima
-- Mallas más finas (h menor) requieren más iteraciones pero ofrecen mayor precisión
-- La convergencia se evalúa por el error máximo entre iteraciones consecutivas
-- Los datos se guardan con cada décimo punto para reducir tamaño de archivo
-
 ## Compilación Alternativa (No Modularizada)
 
 Para compilar la versión sin modularizar:
@@ -146,9 +104,4 @@ cd code
 g++ -Wall -O2 -o mainSinModularizar.exe mainSinModularizar.cpp
 ./mainSinModularizar.exe
 ```
-
-## Autores
-
-Grupo 3 - Física Computacional 1
-Examen Final - Punto 2 (Ecuaciones Diferenciales Parciales)
 
